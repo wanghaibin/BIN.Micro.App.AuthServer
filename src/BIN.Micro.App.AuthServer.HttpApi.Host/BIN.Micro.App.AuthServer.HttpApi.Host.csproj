@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BIN.Micro.App.AuthServer</RootNamespace>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+    <UserSecretsId>BIN.Micro.App.AuthServer-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.5" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="8.1.3" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="8.1.3" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="8.1.3" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="8.1.3" />
+    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="8.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="3.1.*-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BIN.Micro.App.AuthServer.Application\BIN.Micro.App.AuthServer.Application.csproj" />
+    <ProjectReference Include="..\BIN.Micro.App.AuthServer.EntityFrameworkCore\BIN.Micro.App.AuthServer.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\BIN.Micro.App.AuthServer.HttpApi\BIN.Micro.App.AuthServer.HttpApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Content Remove="Logs\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <None Remove="Logs\**" />
+  </ItemGroup>
+
+</Project>
